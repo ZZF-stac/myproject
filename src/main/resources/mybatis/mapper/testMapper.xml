@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzf.mapper.TestMapper">
+    <select id="selectall" resultType="com.zzf.pojo.User">
+        select * from user where userId = #{userId}
+    </select>
+<!--    <select id="selectUser" resultType="com.zzf.pojo.User">-->
+<!--        select * from user where username=#{username}-->
+<!--    </select>-->
+
+    <insert id="saveUser" useGeneratedKeys="true" keyProperty="userId">
+    insert into user(username,password,userType,balance) values (#{username},#{password},#{userType},#{balance})
+    </insert>
+</mapper>

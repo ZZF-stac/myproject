@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ttttt</title>
+</head>
+<body>
+
+<form action="/movieAll" method="get">
+
+
+    <div>
+        <div th:each="movie:${movieAll}" style="margin-left: 50px;float: left;">
+            <img  th:src="'/images/'+${movie.photoname}+'.png'" style="height: 250px;width: 250px">
+            <p th:text="${movie.movieinfo}"></p>
+        </div>
+    </div>
+
+    <hr/>
+
+
+
+</form>
+
+</body>
+</html>

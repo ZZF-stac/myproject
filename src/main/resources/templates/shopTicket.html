@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <title>购票</title>
+
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script>
+        function myalert(){
+        alert("购票成功");
+    }
+
+        function chk(){
+            var obj=document.getElementsByName('zuowei'); //选择所有name="'zuowei'"的对象，返回数组
+            //取到对象数组后，我们来循环检测它是不是被选中
+            Number=0;
+            for(var i=0; i<obj.length; i++){
+                if(obj[i].checked)
+                    Number+=parseInt(obj[i].value); //如果选中，将value添加到变量s中
+            }
+            //那么现在来检测s的值就知道选中的复选框的值了
+            alert("支付了 "+Number+" 元");
+        }
+
+    </script>
+
+</head>
+<body>
+<form action="/ticketHandle" method="get">
+    <div style="margin-left: 150px;border: 1px solid" align="center">
+        <div style="background: #9d9d9d;width: 400px;margin-top: 20px;margin-left: 150px" >
+            <p style="margin-left: 160px">激光放映幕</p>
+        </div>
+        <div style="margin-top: 100px;margin-left: 175px">
+            <p>
+                <input type="checkbox" name="zuowei" value="1" style="height: 25px;width: 25px">
+                <input type="checkbox" name="zuowei" value="2" style="height: 25px;width: 25px">
+                <input type="checkbox" name="zuowei" value="3" style="height: 25px;width: 25px">
+                <input type="checkbox" name="zuowei" value="4" style="height: 25px;width: 25px">
+                <input type="checkbox" name="zuowei" value="5" style="height: 25px;width: 25px">
+                <input type="checkbox" name="zuowei" value="6" style="height: 25px;width: 25px">
+                <input type="checkbox" name="zuowei" value="7" style="height: 25px;width: 25px">
+                <input type="checkbox" name="zuowei" value="8" style="height: 25px;width: 25px">
+                <input type="checkbox" name="zuowei" value="9" style="height: 25px;width: 25px">
+            </p>
+            <p>
+                <input type="checkbox" name="zuowei" value="10" style="height: 25px;width: 25px">
+                <input type="checkbox" name="zuowei" value="11" style="height: 25px;width: 25px">
+                <input type="checkbox" name="zuowei" value="12" style="height: 25px;width: 25px">
+                <input type="checkbox" name="zuowei" value="13" style="height: 25px;width: 25px">
+                <input type="checkbox" name="zuowei" value="14" style="height: 25px;width: 25px">
+                <input type="checkbox" name="zuowei" value="15" style="height: 25px;width: 25px">
+                <input type="checkbox" name="zuowei" value="16" style="height: 25px;width: 25px">
+                <input type="checkbox" name="zuowei" value="17" style="height: 25px;width: 25px">
+                <input type="checkbox" name="zuowei" value="18" style="height: 25px;width: 25px">
+            </p>
+            <p>
+                <input type="checkbox" name="zuowei" value="19" style="height: 25px;width: 25px">
+                <input type="checkbox" name="zuowei" value="20" style="height: 25px;width: 25px">
+                <input type="checkbox" name="zuowei" value="21" style="height: 25px;width: 25px">
+                <input type="checkbox" name="zuowei" value="22" style="height: 25px;width: 25px">
+                <input type="checkbox" name="zuowei" value="23" style="height: 25px;width: 25px">
+                <input type="checkbox" name="zuowei" value="24" style="height: 25px;width: 25px">
+                <input type="checkbox" name="zuowei" value="25" style="height: 25px;width: 25px">
+                <input type="checkbox" name="zuowei" value="26" style="height: 25px;width: 25px">
+                <input type="checkbox" name="zuowei" value="27" style="height: 25px;width: 25px">
+            </p>
+
+            <input type="text" name="z1">
+        </div>
+
+
+        <div style="margin-top: 100px;margin-left: 100px">
+            <button type="submit" class="btn btn-info">微信支付</button>
+            <button type="button" class="btn btn-info" onclick="myalert()">支付宝支付</button>
+            <button type="button" class="btn btn-info" onclick="myalert()">余额支付</button>
+
+        </div>
+    </div>
+</form>
+
+</body>
+<script src="res/js/release/libs.min.js"></script>
+<script src="res/js/release/base.min.js"></script>
+<script src="res/js/release/page/select.min.js"></script>
+</html>
