@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>员工管理</title>
+
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!--引入侧边栏-->
+<div th:replace="common/bar::#adminSideBar(activeUri='selectEmployees')"></div>
+<div style="float: left">
+
+    <table class="table">
+        <caption>员工信息</caption>
+        <thead>
+        <tr>
+            <th>员工ID</th>
+            <th>员工姓名</th>
+            <th>员工手机号</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--/*@thymesVar id="employeelist" type=""*/-->
+        <tr th:each="employee:${employeelist}">
+            <td th:text="${employee.id}"></td>
+            <td th:text="${employee.employeename}"></td>
+            <td th:text="${employee.phonenumber}"></td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>

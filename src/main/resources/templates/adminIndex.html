@@ -1,10 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>管理员首页</title>
+
+    <!-- 引入 echarts.js -->
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
 </head>
 <body>
 <h3>管理员首页</h3>
+<div th:replace="common/bar::#adminSideBar(activeUri='adminIndex')"></div>
+<div id="main" style="width: 600px;height: 400px;border: 1px #ac2925 solid;float: left">
+
+</div>
 </body>
+
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    // 指定图表的配置项和数据
+    var option = {
+        legend: {},
+        tooltip: {},
+        dataset: {
+            // 这里指定了维度名的顺序，从而可以利用默认的维度到坐标轴的映射。
+            // 如果不指定 dimensions，也可以通过指定 series.encode 完成映射，参见后文。
+            dimensions: ['product', '喜剧', '动作', '剧情'],
+            source: [
+                {product: '喜剧', '喜剧': 43.3},
+                {product: '动作', '动作': 83.1},
+                {product: '剧情', '剧情': 86.4},
+            ]
+        },
+        xAxis: {type: 'category'},
+        yAxis: {},
+        series: [
+            {type: 'bar'},
+            {type: 'bar'},
+            {type: 'bar'}
+        ]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+
 </html>

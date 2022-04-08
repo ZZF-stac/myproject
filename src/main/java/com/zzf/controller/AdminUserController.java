@@ -2,12 +2,15 @@ package com.zzf.controller;
 
 import com.zzf.mapper.AdminMapper;
 import com.zzf.pojo.AdminUser;
+import com.zzf.pojo.Employees;
 import com.zzf.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Collection;
 import java.util.Map;
 
 @Controller
@@ -41,4 +44,13 @@ public class AdminUserController {
             return "adminLogin";
         }
     }
+
+
+    @RequestMapping("/selectEmployees")
+    public String selectEmployees(Model model){
+        Collection<Employees> employeelist=adminService.selectEmployees();
+        model.addAttribute(employeelist);
+        return "admin/employeesHandle";
+    }
+
 }
